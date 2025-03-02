@@ -104,7 +104,6 @@ button {
     background: #ccff33;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
