@@ -1,3 +1,4 @@
+console.log("custom-cursor.js loaded successfully")
 document.addEventListener("DOMContentLoaded", function () {
     let cursor = document.querySelector(".custom-cursor");
 

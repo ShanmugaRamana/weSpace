@@ -1,0 +1,122 @@
+body {
+    color: white;
+    display: flex;
+    background: black;
+    margin: 0;
+    padding: 0;
+}
+
+.body-left{
+    width: 50%;
+    height: 100vh;
+    background-color: #161618;
+    
+}
+.body-left .logo img {
+    width: 175px;
+    height: 35px;
+    padding: 15px 20px;
+
+}
+.body-left .cover{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup-container .signin h3{
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-size: 15px;
+
+}
+.body-right .signup-container form{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.signup-container .welcome h2{
+    font-family: "Robotto", sans-serif;
+    font-size: 55px;
+    font-weight: 400;
+}
+.form-group-1{
+    display: flex;
+}
+.form-group-2{
+    display: flex;
+}
+.body-right{
+    width: 50%;
+    height: 100vh;
+    background-color: black;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+.input-group input {
+    display: flex;
+    width: 300px;
+    padding: 8px;
+    border: none; /* Remove border */
+    border-bottom: 2px solid #444; /* Add bottom border only */
+    background: transparent; /* Make background transparent */
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+.input-group label{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+
+
+}
+.phone-input {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #444;
+    padding: 5px 0;
+}
+.phone-input select {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+    outline: none;
+
+}
+.phone-input input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    outline: none;
+}
+
+
+
+/* Style the dropdown options */
+select option {
+    background: black;
+    color: white;
+    font-size: 14px;
+}
+
+/* Highlight selected option */
+select option:checked {
+    background: #d9ff66;
+    color: black;
+}
+
+/* Hover effect */
+select option:hover {
+    background: #444;
+
+}
