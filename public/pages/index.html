@@ -6,12 +6,13 @@
     <title>weSpace</title>
 
     <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/custom-cursor.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Liter&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <div class="custom-cursor"></div> <!-- Custom Cursor Element -->
     <div class="header">
         <div class="header-left">
             <div class="logo">
@@ -31,10 +32,9 @@
                 <ul class="nav-list">
                     <li><h4>Contact Us</h4></li>
                     <div class="header-btns">
-                        <li><button id="login">Login</button></li>
-                        <li><button id="signup">Get Started</button></li>
+                        <li><button id="login" data-text="Login"><span>Login</span></button></li>
+                        <li><button id="signup" data-text="Get Started"><span>Get Started</span></button></li>
                     </div>
-
                 </ul>
             </nav>
         </div>
@@ -44,8 +44,8 @@
         
     </div>
     
-    
-
+    <script src="/script/custom-cursor.js"></script>
+    <script src="/routes/indexRoutes.js"></script>
     <script src="/script/index.js"></script>
 </body>
 </html>

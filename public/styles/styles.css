@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: space-between; /* Left & right sections on opposite sides */
     align-items: center; /* Align items vertically */
-    padding: 15px 20px;
+    padding: 1px 20px;
 }
 
 /* Left section (Logo & Navbar) */
@@ -23,8 +23,9 @@ body {
 
 /* Logo */
 .header-left .logo img {
-    width: 225px;
-    height: 45px;
+    width: 175px;
+    height: 35px;
+
 }
 
 /* Right section (Contact & Buttons) */
@@ -49,7 +50,6 @@ body {
 }
 /* Navbar links */
 .nav-list li {
-    cursor: pointer;
     transition: color 0.3s ease-in-out;
 }
 
@@ -68,10 +68,13 @@ body {
 /* Buttons */
 button {
     padding: 10px 20px;
+    overflow: hidden;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
 }
 
 /* Login button */
@@ -80,7 +83,7 @@ button {
     font-weight: 300;
     background: transparent;
     color: white;
-    border: 1px solid white;
+    border: 2px solid white;
     width: 100px;
 }
 
@@ -94,11 +97,7 @@ button {
 
 }
 
-/* Hover effects */
-#login:hover {
-    background: white;
-    color: black;
-}
+
 
 #signup:hover {
     background: #ccff33;
