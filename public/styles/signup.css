@@ -1,53 +1,47 @@
 body {
     color: white;
     display: flex;
+    flex-wrap: wrap;
     background: black;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
-.body-left{
+.body-left {
     width: 50%;
     height: 100vh;
     background-color: #161618;
-    
 }
-.body-left .logo img {
-    width: 175px;
-    height: 35px;
-    padding: 15px 20px;
 
+.body-left .logo img {
+    width: clamp(100px, 15vw, 175px);
+    height: auto;
+    padding: clamp(10px, 2vw, 15px) clamp(15px, 3vw, 20px);
 }
-.body-left .cover{
+
+.body-left .cover {
     height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.signup-container .signin h3{
+
+.body-left .cover img {
+    max-width: 100%;
+    height: auto;
+}
+
+.signup-container .signin h3 {
+    position: absolute;
     font-family: "Poppins", sans-serif;
     font-weight: 200;
-    font-size: 15px;
+    font-size: clamp(12px, 1.5vw, 15px);
+    top: 10px;
+    right: clamp(10px, 2vw, 20px);
+}
 
-}
-.body-right .signup-container form{
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.signup-container .welcome h2{
-    font-family: "Robotto", sans-serif;
-    font-size: 55px;
-    font-weight: 400;
-}
-.form-group-1{
-    display: flex;
-}
-.form-group-2{
-    display: flex;
-}
-.body-right{
+.body-right {
     width: 50%;
     height: 100vh;
     background-color: black;
@@ -55,68 +49,182 @@ body {
     border-bottom-left-radius: 10px;
 }
 
+.body-right .signup-container form {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 clamp(15px, 5vw, 30px);
+    gap: 2rem; /* Add space between form groups */
+}
+
+.signup-container .welcome h2 {
+    font-family: "Robotto", sans-serif;
+    font-size: clamp(30px, 5vw, 55px);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.form-group-1,
+.form-group-2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items at the top for consistency */
+}
+
+.form-group-1 .input-group,
+.form-group-2 .input-group {
+    flex: 1;
+    min-width: 0;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column; /* Ensure label and input stack vertically */
+}
 
 .input-group input {
-    display: flex;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     padding: 8px;
-    border: none; /* Remove border */
-    border-bottom: 2px solid #444; /* Add bottom border only */
-    background: transparent; /* Make background transparent */
+    border: none;
+    border-bottom: 2px solid #444;
+    background: transparent;
     color: white;
-    font-size: 16px;
+    font-size: clamp(14px, 1.6vw, 16px);
     outline: none;
     transition: border-color 0.3s ease;
 }
-.input-group label{
+
+.input-group label {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
-
-
+    font-size: clamp(12px, 1.4vw, 16px);
+    margin-bottom: 0.5rem; /* Space between label and input */
 }
+
 .phone-input {
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertically center select and input */
     border-bottom: 2px solid #444;
-    padding: 5px 0;
+    padding: 0; /* Remove padding to align with other inputs */
+    max-width: 315px;
 }
+
 .phone-input select {
     background: transparent;
     border: none;
     color: white;
-    font-size: 16px;
-    padding: 5px;
+    font-size: clamp(14px, 1.6vw, 16px);
+    padding: 8px 5px; /* Match input padding */
     cursor: pointer;
     outline: none;
-
+    max-width: 30%;
+    height: 100%; /* Ensure consistent height */
 }
+
 .phone-input input {
     flex: 1;
     background: transparent;
     border: none;
     color: white;
-    font-size: 16px;
-    padding: 5px;
+    font-size: clamp(14px, 1.6vw, 16px);
+    padding: 8px 5px; /* Match input padding */
     outline: none;
+    height: 100%; /* Ensure consistent height */
 }
 
-
-
-/* Style the dropdown options */
 select option {
     background: black;
     color: white;
-    font-size: 14px;
+    font-size: clamp(12px, 1.4vw, 14px);
 }
 
-/* Highlight selected option */
 select option:checked {
     background: #d9ff66;
     color: black;
 }
 
-/* Hover effect */
 select option:hover {
     background: #444;
+}
 
+.signup-container button {
+    background-color: #FFFFFF;
+    position: relative; /* Changed from absolute for better flow */
+    left: 25px;
+    font-family: "Poppins", sans-serif;
+    height: clamp(3rem, 10vw, 5rem);
+    width: clamp(3rem, 10vw, 5rem);
+    border-radius: 50%;
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+    font-weight: 300;
+    margin: 1rem auto 0;
+    cursor: pointer;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .body-left,
+    .body-right {
+        width: 100%;
+        height: auto;
+    }
+
+    .body-left .cover {
+        height: 50vh;
+    }
+
+    .body-right {
+        border-radius: 0;
+    }
+
+    .body-right .signup-container form {
+        height: auto;
+        padding: 20px;
+        gap: 1.5rem; /* Reduced gap for smaller screens */
+    }
+
+    .signup-container .signin h3 {
+        position: static;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .form-group-1,
+    .form-group-2 {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .body-left .logo img {
+        width: clamp(80px, 20vw, 120px);
+    }
+
+    .signup-container .welcome h2 {
+        text-align: center;
+    }
+
+    .form-group-1 .input-group,
+    .form-group-2 .input-group {
+        flex: none;
+        width: 100%;
+    }
+
+    .input-group input,
+    .phone-input {
+        width: 315px;
+    }
+
+    .phone-input select {
+        max-width: 40%;
+    }
+    .signup-container .signin h3 {
+        display: none;
+    }
 }

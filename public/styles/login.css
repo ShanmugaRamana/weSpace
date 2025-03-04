@@ -3,127 +3,186 @@ body {
     background: black;
     margin: 0;
     padding: 0;
+    font-size: 16px; /* Base font size for rem/em */
 }
+
 .logo img {
-    width: 175px;
-    height: 35px;
-    padding: 15px 20px;
-
+    width: 100%; /* Make image responsive */
+    max-width: 175px; /* Maintain max size */
+    height: auto; /* Maintain aspect ratio */
+    padding: 1rem 1.25rem; /* Use rem for responsive padding */
 }
 
-.body-content{
+.body-content {
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
-/* Centering the right section */
+
+/* Left Section */
 .body-left {
     width: 50%;
     height: 100vh;
     background-color: #161618;
-    border-top-right-radius: 10px; /* Curves the top-right corner */
-    border-bottom-right-radius: 10px; /* Curves the bottom-right corner */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-/* This is now redundant because .body-right handles centering */
-.body-left .cover  {
+.body-left .cover {
     height: 90%;
-    display: flex; /* Flexbox for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.body-right{
+/* Right Section */
+.body-right {
     width: 50%;
     height: 100vh;
     background-color: black;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-container .create-acc h3{
+.login-container .create-acc h3 {
     font-family: "Poppins", sans-serif;
     position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 14px;
+    top: 0.625rem; /* 10px converted to rem */
+    right: 1.25rem; /* 20px converted to rem */
+    font-size: 0.875rem; /* 14px converted to rem */
     font-weight: 300;
 }
-.login-container .create-acc h3:hover{
+
+.login-container .create-acc h3:hover {
     text-decoration: underline;
 }
-.login{
+
+.login {
     display: flex;
     height: 80vh;
     width: 90%;
-    padding-left: 20px;
+    padding-left: 1.25rem; /* 20px converted to rem */
     flex-direction: column;
     justify-content: center;
+    max-width: 500px; /* Prevent excessive stretching */
 }
-.login h2{
-    font-family: "Robotto", sans-serif;
-    font-size: 55px;
+
+.login h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.4375rem); /* Responsive font size (32px - 55px) */
     font-weight: 400;
-
+    margin-bottom: 1.5rem;
 }
+
 .login-container form {
-    
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    flex-direction: row; /* Stack inputs on smaller screens */
+    gap: 2rem; /* Responsive gap */
 }
-.input-group input {
 
-    width: 300px;
-    padding: 8px;
-    border: none; /* Remove border */
-    border-bottom: 2px solid #444; /* Add bottom border only */
-    background: transparent; /* Make background transparent */
+.input-group input {
+    width: 100%; /* Full width for responsiveness */
+    max-width: 300px; /* Maintain max width */
+    padding: 0.5rem; /* 8px converted to rem */
+    border: none;
+    border-bottom: 2px solid #444;
+    background: transparent;
     color: white;
-    font-size: 16px;
+    font-size: 1rem; /* 16px converted to rem */
     outline: none;
     transition: border-color 0.3s ease;
 }
-.input-group label{
+
+.input-group label {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
-
-
+    font-size: 0.875rem; /* 14px converted to rem */
 }
-.login .forgot-password h4{
+
+.login .forgot-password h4 {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     color: #999999;
-
+    font-size: 0.875rem; /* 14px converted to rem */
+    margin-top: 1rem;
 }
-.login .forgot-password h4:hover{
+
+.login .forgot-password h4:hover {
     text-decoration: underline;
 }
-.login-container button{
+
+.login-container button {
     background-color: #FFFFFF;
-    right: 20px;
     font-family: "Poppins", sans-serif;
-    height: 90px;
-    width: 90px;
-    border-radius: 100px;
-    position: absolute;
-    right: 50px;
-    font-size: 14px;
+    height: 5rem; /* 80px converted to rem, slightly reduced */
+    width: 5rem;
+    border-radius: 50%; /* Simplified to 50% for perfect circle */
+    position: relative; /* Changed from absolute for better flow */
+    font-size: 0.875rem; /* 14px converted to rem */
     font-weight: 300;
+    margin: 1rem auto 0; /* Center button */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .body-left, .body-right {
+        width: 100%; /* Stack sections vertically */
+        height: auto; /* Allow height to adjust */
+        min-height: 50vh; /* Minimum height for smaller screens */
+    }
+
+    .body-left {
+        border-radius: 0; /* Remove radius on smaller screens */
+    }
+
+    .login {
+        padding: 1rem;
+        height: auto;
+    }
+
+    .login h2 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+    }
 }
 
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: center;
+    .logo img {
+        max-width: 150px; /* Reduce logo size on smaller screens */
+    }
+
+    .login-container .create-acc h3 {
+        position: static; /* Remove absolute positioning */
         text-align: center;
+        margin: 1rem 0;
     }
 
-    .header-left,
-    .header-right {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+    .input-group input {
+        max-width: 100%; /* Full width on mobile */
     }
 
-    .nav-list {
+    .login-container button {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login h2 {
+        font-size: clamp(1.25rem, 3vw, 2rem);
+    }
+
+    .input-group label {
+        font-size: 0.75rem; /* Slightly smaller on mobile */
+    }
+
+    .login {
+        width: 95%;
+        padding: 0.5rem;
+    }
+    .login form{
         flex-direction: column;
+    }
+    .login-container .create-acc h3 {
+        display: none;
     }
 }
